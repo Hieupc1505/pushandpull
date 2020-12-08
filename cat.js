@@ -4,9 +4,13 @@ function Cat(name){
 	this.stomach = []
 }
 
-Cat.prototype.eat = function(Mouse){
-	Mouse.eat(); 
-	this.stomach.push(Mouse); 
+Cat.prototype.eat = function(animal){
+	if(animal instanceof Mouse){
+	animal.eat(); 
+	this.stomach.push(animal); 
+	}else {
+		throw new Error('error while cat and dog'); 
+	}
 }
 
 module.exports = Cat; 
